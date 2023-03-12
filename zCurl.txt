@@ -1,0 +1,23 @@
+*****POST*****
+
+curl --request POST \
+  --url 'http://localhost:8080/api/v1/customer?=' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"name": "harold",
+	"last": "ramirez",
+	"age": "27",
+	"typeDocument": "DNI",
+	"numberDocument": "90201040"
+}'
+
+
+*****GET*****
+curl --request GET \
+  --url 'http://localhost:8080/api/v1/customer?=' \
+  --header 'Content-Type: application/json'
+
+*****DELETE LIST*****
+curl --request DELETE \
+  --url 'http://localhost:8080/api/v1/customer?=' \
+  --header 'Content-Type: application/json'
