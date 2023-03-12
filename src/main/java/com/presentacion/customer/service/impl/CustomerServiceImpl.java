@@ -1,14 +1,13 @@
-package com.presentacion.first.Presentacion1.service.impl;
+package com.presentacion.customer.service.impl;
 
-import com.presentacion.first.Presentacion1.documents.Customer;
-import com.presentacion.first.Presentacion1.repository.CustomerRepository;
-import com.presentacion.first.Presentacion1.service.CustomerService;
+import com.presentacion.customer.documents.Customer;
+import com.presentacion.customer.repository.CustomerRepository;
+import com.presentacion.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Clase que contiene la lógica del cliente respecto al CRUD

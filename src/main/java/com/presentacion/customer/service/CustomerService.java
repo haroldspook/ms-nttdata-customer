@@ -1,6 +1,6 @@
-package com.presentacion.first.Presentacion1.service;
+package com.presentacion.customer.service;
 
-import com.presentacion.first.Presentacion1.documents.Customer;
+import com.presentacion.customer.documents.Customer;
 
 import java.util.List;
 

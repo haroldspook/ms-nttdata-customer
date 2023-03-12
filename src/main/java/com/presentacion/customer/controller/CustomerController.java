@@ -1,9 +1,8 @@
-package com.presentacion.first.Presentacion1.controller;
+package com.presentacion.customer.controller;
 
 
-import com.presentacion.first.Presentacion1.documents.Customer;
-import com.presentacion.first.Presentacion1.service.CustomerService;
-import com.presentacion.first.Presentacion1.service.impl.CustomerServiceImpl;
+import com.presentacion.customer.documents.Customer;
+import com.presentacion.customer.service.impl.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

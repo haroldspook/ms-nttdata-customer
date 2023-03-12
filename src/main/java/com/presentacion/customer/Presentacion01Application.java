@@ -1,4 +1,4 @@
-package com.presentacion.first.Presentacion1;
+package com.presentacion.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

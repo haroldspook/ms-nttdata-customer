@@ -1,4 +1,4 @@
-package com.presentacion.first.Presentacion1;
+package com.presentacion.customer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.presentacion.first.Presentacion1.documents;
+package com.presentacion.customer.documents;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
