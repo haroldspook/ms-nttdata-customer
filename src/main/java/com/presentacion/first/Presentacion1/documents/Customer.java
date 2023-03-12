@@ -9,8 +9,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+/**
+ * Modelo de la clase que representa a la colección de mongo DB
+ */
 @Data
-//@Document(collation = "customer")
 @Document(collection = "CLIENT")
 public class Customer {
 
