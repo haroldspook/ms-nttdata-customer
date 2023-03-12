@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Clase que contiene la lógica del cliente respecto al CRUD
@@ -51,13 +52,7 @@ public class CustomerServiceImpl implements CustomerService {
      **/
     @Override
     public Customer save(Customer customer) {
-
-       /* return customerRepository.save(customerRepository.findAll()
-                .stream()
-                .filter(customerL -> !customerL.getNumberDocument().equals(customer.getNumberDocument()))
-                .collect(Collectors.toList()).get(0));*/
         return customerRepository.save(customer);
-
     }
 
     /***
