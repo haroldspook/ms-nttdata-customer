@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -16,7 +17,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> findAll() {
-        return customerRepository.findAll();
+       return customerRepository.findAll()
+                .stream()
+                .filter(customer -> customer.getAge() > 17)
+                .filter(customer -> customer.getStatus() == true)
+                .collect(Collectors.toList());
     }
 
     @Override

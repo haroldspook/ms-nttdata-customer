@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 @Data
 //@Document(collation = "customer")
@@ -16,10 +19,14 @@ public class Customer {
     private String id;
     private String name;
     private String last;
-    private String age;
+    private Integer age;
+    private Boolean status;
     private String typeDocument;
-    private String numberDocument;
-    private String typeCustomer;
+    private Integer numberDocument;
+    private Integer typeCustomer;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createAt;
 
     @Override
     public String toString() {
@@ -27,10 +34,12 @@ public class Customer {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", last='" + last + '\'' +
-                ", age='" + age + '\'' +
+                ", age=" + age +
+                ", status=" + status +
                 ", typeDocument='" + typeDocument + '\'' +
-                ", numberDocument='" + numberDocument + '\'' +
-                ", typeCustomer='" + typeCustomer + '\'' +
+                ", numberDocument=" + numberDocument +
+                ", typeCustomer=" + typeCustomer +
+                ", createAt=" + createAt +
                 '}';
     }
 }
