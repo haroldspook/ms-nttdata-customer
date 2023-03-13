@@ -13,7 +13,7 @@ import java.util.Date;
  * Modelo de la clase que representa a la colección de mongo DB
  */
 @Data
-@Document(collection = "CLIENT")
+@Document(collection = "Customer")
 public class Customer {
 
     @Id
