@@ -8,6 +8,7 @@ import com.presentacion.customer.util.CustomerBuilder;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,12 @@ import io.reactivex.Observable;
  */
 @Service
 @Slf4j
+@AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
 
     /***
      * Este método listará todos los clientes

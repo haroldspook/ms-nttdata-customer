@@ -43,7 +43,7 @@ public class CustomerController {
     @ResponseBody
     @ApiOperation(value = Constants.GET_ALL_VALUE, notes = Constants.GET_ALL_NOTE)
 
-    public Observable<CustomerResponse> getCustomer(){
+    public Observable<CustomerResponse> getAllCustomer(){
         log.info("Obtencion de datos ");
         return customerService.findAll();
     }
@@ -61,7 +61,7 @@ public class CustomerController {
 
     /**
      * Método que registrará los clientes
-     * @param customer
+     * @param request
      * @return El mismo cliente para ver su inserción
      */
     @PostMapping
