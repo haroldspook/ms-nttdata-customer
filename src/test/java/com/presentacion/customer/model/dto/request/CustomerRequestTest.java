@@ -1,8 +1,8 @@
-package com.presentacion.customer.dto.request;
+package com.presentacion.customer.model.dto.request;
 
 import com.google.gson.Gson;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
 import com.presentacion.customer.util.TestUtil;
-import io.reactivex.observers.TestObserver;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
