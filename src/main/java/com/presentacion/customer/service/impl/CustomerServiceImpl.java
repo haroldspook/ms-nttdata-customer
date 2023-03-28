@@ -49,8 +49,8 @@ public class CustomerServiceImpl implements CustomerService {
     **/
     @Override
     public Observable<CustomerResponse> findAllByNumberDocument(Integer numberDocument) {
-       return Observable.fromIterable(customerRepository.findAll())
-               .map(customer -> CustomerBuilder.customerEntityToCustomerResponse(customer))
+        log.info("Obtener todos los registros de Productos acorde al numero de documento");
+       return findAll()
                .filter(customerResponse -> customerResponse.getNumberDocument().equals(numberDocument))
                .subscribeOn(Schedulers.io());
     }
@@ -71,6 +71,7 @@ public class CustomerServiceImpl implements CustomerService {
      **/
     @Override
     public Completable delete() {
+        log.info("Se eliminan todos los registros");
         customerRepository.deleteAll();
         return Completable.complete();
     }
