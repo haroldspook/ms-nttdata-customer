@@ -1,8 +1,8 @@
 package com.presentacion.web.expose;
 
 
-import com.presentacion.customer.dto.request.CustomerRequest;
-import com.presentacion.customer.dto.response.CustomerResponse;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
 import com.presentacion.customer.service.CustomerService;
 import com.presentacion.customer.util.Constants;
 import io.reactivex.Completable;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import io.reactivex.Observable;
 
@@ -40,9 +39,7 @@ public class CustomerController {
      * @return Lista de clientes Customer
      */
     @GetMapping
-    @ResponseBody
     @ApiOperation(value = Constants.GET_ALL_VALUE, notes = Constants.GET_ALL_NOTE)
-
     public Observable<CustomerResponse> getAllCustomer(){
         log.info("Obtencion de datos ");
         return customerService.findAll();
@@ -52,7 +49,6 @@ public class CustomerController {
      * Metodo que eliminará todos los clientes (Customer)
      */
     @DeleteMapping
-    @ResponseBody
     @ApiOperation(value = Constants.DELETE_VALUE, notes = Constants.DELETE_NOTE)
     public Completable deleteListCustomer(){
         log.info("Eliminar todos los datos");
@@ -65,7 +61,6 @@ public class CustomerController {
      * @return El mismo cliente para ver su inserción
      */
     @PostMapping
-    @ResponseBody
     @ApiOperation(value = Constants.SAVE_VALUE, notes = Constants.SAVE_NOTE)
     public Single<CustomerResponse> saveCustomer(@RequestBody CustomerRequest request){
         log.info("Envio de parametros");

@@ -6,13 +6,11 @@ import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import com.google.gson.Gson;
-import com.presentacion.customer.dto.request.CustomerRequest;
-import com.presentacion.customer.dto.response.CustomerResponse;
-import com.presentacion.customer.entity.Customer;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
+import com.presentacion.customer.model.entity.Customer;
 import com.presentacion.customer.repository.CustomerRepository;
 import com.presentacion.customer.util.CustomerBuilder;
 import com.presentacion.customer.util.TestUtil;
-import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,8 +22,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class CustomerServiceImplTest {

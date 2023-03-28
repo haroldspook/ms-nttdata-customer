@@ -1,7 +1,7 @@
 package com.presentacion.customer.service.impl;
 
-import com.presentacion.customer.dto.request.CustomerRequest;
-import com.presentacion.customer.dto.response.CustomerResponse;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
 import com.presentacion.customer.repository.CustomerRepository;
 import com.presentacion.customer.service.CustomerService;
 import com.presentacion.customer.util.CustomerBuilder;

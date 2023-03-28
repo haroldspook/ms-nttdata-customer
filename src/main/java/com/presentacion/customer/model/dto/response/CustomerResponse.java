@@ -1,4 +1,4 @@
-package com.presentacion.customer.dto.response;
+package com.presentacion.customer.model.dto.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -1,4 +1,4 @@
-package com.presentacion.customer.dto.request;
+package com.presentacion.customer.model.dto.request;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

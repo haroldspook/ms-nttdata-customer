@@ -1,10 +1,7 @@
 package com.presentacion.customer.service;
 
-import com.presentacion.customer.dto.request.CustomerRequest;
-import com.presentacion.customer.dto.response.CustomerResponse;
-import com.presentacion.customer.entity.Customer;
-
-import java.util.List;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;

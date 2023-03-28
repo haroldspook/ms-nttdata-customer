@@ -1,8 +1,8 @@
 package com.presentacion.customer.util;
 
-import com.presentacion.customer.dto.request.CustomerRequest;
-import com.presentacion.customer.dto.response.CustomerResponse;
-import com.presentacion.customer.entity.Customer;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
+import com.presentacion.customer.model.entity.Customer;
 
 public class CustomerBuilder {
     public final static Customer customerRequestToCustomerEntity (CustomerRequest request){

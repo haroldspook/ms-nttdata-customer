@@ -1,4 +1,4 @@
-package com.presentacion.customer.entity;
+package com.presentacion.customer.model.entity;
 
 import lombok.Builder;
 import lombok.Data;

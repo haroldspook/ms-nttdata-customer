@@ -4,8 +4,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-import com.presentacion.customer.dto.request.CustomerRequest;
-import com.presentacion.customer.dto.response.CustomerResponse;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
 import com.presentacion.customer.service.CustomerService;
 
 import com.google.gson.Gson;
