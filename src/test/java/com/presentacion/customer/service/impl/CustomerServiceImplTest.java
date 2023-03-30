@@ -1,15 +1,14 @@
 package com.presentacion.customer.service.impl;
 
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import com.google.gson.Gson;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
 import com.presentacion.customer.model.dto.response.CustomerResponse;
 import com.presentacion.customer.model.entity.Customer;
 import com.presentacion.customer.repository.CustomerRepository;
-import com.presentacion.customer.util.CustomerBuilder;
 import com.presentacion.customer.util.TestUtil;
 import io.reactivex.observers.TestObserver;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,8 +30,6 @@ class CustomerServiceImplTest {
 
     @Mock
     private CustomerRepository customerRepository;
-    @Mock
-    private CustomerBuilder customerBuilder;
 
     private static final Gson GSON = new Gson();
     private static final Integer DOCUMENT_NUMBER = Integer.valueOf(77777777);
@@ -60,6 +57,7 @@ class CustomerServiceImplTest {
     }
 
     @Test
+    @DisplayName("Obtiene todos  los datos de los Clientes acorde al numero de documento")
     public void returnListCustomerResponseWhenfindAllByNumberDocument() {
         Customer customer = GSON.fromJson(TestUtil.readJsonFileToString("mock/customer_response.json"),
                 Customer.class);
@@ -75,7 +73,18 @@ class CustomerServiceImplTest {
 
     @Test
     @DisplayName("Cuando se guardan correctamente los datos del Cliente")
-    public void returnSuccessWhenSaveOk() {
+    public void returnSuccessWhenSaveOk(){
+
+    Customer customer = GSON.fromJson(TestUtil.readJsonFileToString("mock/customer_response.json"),
+            Customer.class);
+    CustomerRequest customerRequest = GSON.fromJson(TestUtil.readJsonFileToString("mock/customer_response.json"),
+            CustomerRequest.class);
+    when(customerRepository.save(any())).thenReturn(customer);
+
+    TestObserver<CustomerResponse> testObserver = customerService.save(customerRequest).test();
+        testObserver.awaitTerminalEvent();
+        testObserver.assertComplete();
+        testObserver.assertNoErrors();
     }
 
     @Test
