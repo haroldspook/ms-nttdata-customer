@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "name": "Pepe",
+  "last": "Sanchez",
+  "age": 18,
+  "status": false,
+  "typeDocument": "DNI",
+  "numberDocument": 77777777,
+  "typeCustomer": 1,
+  "createAt": "2023-03-27T05:35:17.657Z"
+}

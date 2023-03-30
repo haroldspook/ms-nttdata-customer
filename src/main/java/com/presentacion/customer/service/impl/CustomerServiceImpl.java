@@ -1,23 +1,31 @@
 package com.presentacion.customer.service.impl;
 
-import com.presentacion.customer.documents.Customer;
+import com.presentacion.customer.model.dto.request.CustomerRequest;
+import com.presentacion.customer.model.dto.response.CustomerResponse;
 import com.presentacion.customer.repository.CustomerRepository;
 import com.presentacion.customer.service.CustomerService;
+import com.presentacion.customer.util.CustomerBuilder;
+import io.reactivex.Completable;
+import io.reactivex.Single;
+import io.reactivex.schedulers.Schedulers;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import io.reactivex.Observable;
 
 /**
  * Clase que contiene la lógica del cliente respecto al CRUD
  */
 @Service
+@Slf4j
+@AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
 
     /***
      * Este método listará todos los clientes
@@ -26,12 +34,13 @@ public class CustomerServiceImpl implements CustomerService {
      * @return lista de clientes (Customer)
      */
     @Override
-    public List<Customer> findAll() {
-       return customerRepository.findAll()
-                .stream()
-                .filter(customer -> customer.getAge() > 17)
-                .filter(customer -> customer.getStatus() == true)
-                .collect(Collectors.toList());
+    public Observable<CustomerResponse> findAll() {
+        log.info("Obtener todos los registros de Productos");
+       return Observable.fromIterable(customerRepository.findAll())
+               .map(customer -> CustomerBuilder.customerEntityToCustomerResponse(customer))
+               .filter(customerResponse -> customerResponse.getAge() > 17
+                       && customerResponse.getStatus().equals(true))
+               .subscribeOn(Schedulers.io());
     }
 
     /***
@@ -39,27 +48,31 @@ public class CustomerServiceImpl implements CustomerService {
      * @return Lista de clientes
     **/
     @Override
-    public List<Customer> findAllById(Integer numberDocument) {
-       return customerRepository.findAll()
-               .stream()
-               .filter(customer -> customer.getNumberDocument().equals(numberDocument))
-               .collect(Collectors.toList());
+    public Observable<CustomerResponse> findAllByNumberDocument(Integer numberDocument) {
+        log.info("Obtener todos los registros de Productos acorde al numero de documento");
+       return findAll()
+               .filter(customerResponse -> customerResponse.getNumberDocument().equals(numberDocument))
+               .subscribeOn(Schedulers.io());
     }
 
     /***
-     * Este método listará los clientes con el mismo número de documento
+     * Este método se guardara la informacion del cliente
      * @return Cliente (Customer)
      **/
     @Override
-    public Customer save(Customer customer) {
-        return customerRepository.save(customer);
+    public Single<CustomerResponse> save(CustomerRequest request) {
+        log.info("Se guardan los parametros enviados");
+        return Single.just(customerRepository.save(CustomerBuilder.customerRequestToCustomerEntity(request)))
+                .map(customer -> CustomerBuilder.customerEntityToCustomerResponse(customer));
     }
 
     /***
      * Este método eliminará a los clientes
      **/
     @Override
-    public void delete() {
+    public Completable delete() {
+        log.info("Se eliminan todos los registros");
         customerRepository.deleteAll();
+        return Completable.complete();
     }
 }
