@@ -18,7 +18,7 @@ import java.util.Date;
 @ApiModel("Model Customer")
 public class CustomerRequest {
     @ApiModelProperty(value = "id" , position = 1, example = "1")
-    private Long id;
+    private String id;
     @ApiModelProperty(value = "name", required = true , position = 2, example = "Pepe")
     private String name;
     @ApiModelProperty(value = "last", required = true , position = 3, example = "Sanchez")
